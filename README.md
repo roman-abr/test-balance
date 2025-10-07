@@ -2,7 +2,7 @@
 
 ```bash
 $ npm install
-$ docker-compose up -d postgres
+$ docker-compose up -d postgres redis
 ```
 
 ## Compile and run the project

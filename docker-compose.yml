@@ -19,8 +19,17 @@ services:
   postgres:
     image: postgres:17-alpine
     env_file: docker-compose.env
+    depends_on:
+      - redis
     ports: 
       - 5432:5432
+    networks:
+      - internal
+
+  redis:
+    image: redis:7-alpine
+    ports: 
+      - 6379:6379
     networks:
       - internal
 
