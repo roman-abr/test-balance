@@ -16,7 +16,8 @@ export class UserRepository extends BaseRepository<UserEntity> {
       WITH user_balance AS(
         SELECT id, balance FROM ${this.tableName} WHERE id = $1 AND balance > 0 FOR UPDATE
       )
-      UPDATE ${this.tableName} SET balance = user_balance.balance - $2 FROM user_balance WHERE ${this.tableName}.id = user_balance.id RETURNING *
+      UPDATE ${this.tableName} SET balance = user_balance.balance - $2 FROM user_balance WHERE ${this.tableName}.id = user_balance.id 
+      RETURNING ${this.tableName}.*
       `, [userId, amount]);
     if (!result.rows.length) {
       throw new NotFoundException("Not found user with positive balance");
