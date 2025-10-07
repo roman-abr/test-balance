@@ -1,0 +1,6 @@
+certs
+dist
+file-uploader
+minio-data
+node_modules
+.git

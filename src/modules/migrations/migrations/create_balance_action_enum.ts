@@ -1,0 +1,1 @@
+export default `CREATE TYPE balance_action AS ENUM ('withdraw', 'deposit');`;
